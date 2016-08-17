@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	
+</body>
+<script  type="text/javascript" charset="utf-8" >
+	function  theSame(word1,arr){
+		var arr=arr;
+		var newarr=[];
+		var  arr1=word1.split("").sort(function(a,b){
+			return a>b?1:-1
+		}).join("");
+		arr.forEach(function(item,index){
+			var  itemOrder= item.split("").sort(function(a,b){
+				return a>b?1:-1
+			}).join("");
+
+			if(arr1===itemOrder){
+			   newarr.push(arr[index])
+			}
+			else{
+				return false;
+			}		
+		})
+		if([]==newarr){
+				return [];
+			}
+			else{
+				return newarr;
+				}
+		}
+		//theSame('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']);
+
+		function countOne(n){
+			var  two= n.toString(2)+"";
+			
+			arr=two.split("");
+			var i=0;
+			console.log(arr);
+			arr.forEach(function(item){
+				if(item=="1"){
+					i++
+				}
+			})
+			return i;
+		}
+	
+	function pickPeaks(arr){
+			var arr=arr;
+			var len=arr.length;
+			//alert(arr);
+			var pos=[],peak=[];
+			for(var i=1;i<len;i++){
+				if(arr[i]>arr[i+1]&&arr[i]>arr[i-1]) {
+					pos.push(i);
+					peak.push(arr[i])
+				}
+
+				    if(arr[i]>arr[i-1]&&arr[i]==arr[i+1]){
+        					pos.push(i);
+					peak.push(arr[i])
+        				}				
+			}
+		obj={
+			"pos":pos,
+			"peaks":peak
+		}
+		console.log(obj);
+		return obj;
+		}
+
+		 pickPeaks([1,2,2,2,1]);
+
+
+
+function pickPeaks(arr){
+  var result = {pos: [], peaks: []};
+  if(arr.length > 2) {
+    var pos = -1;
+    for(var i=1; i<arr.length;i++){
+      if(arr[i] > arr[i-1]) {
+        pos = i;
+      } 
+      else if(arr[i] < arr[i-1] && pos != -1) {
+        result.pos.push(pos);
+        result.peaks.push(arr[pos]);
+        pos = -1;
+      }
+    }
+  }
+  return result;
+}
+
+
+function race(v1,v2,g){
+	var num=g/(v2-v1);
+              result=[];
+	h=parseInt(num);
+	mn=parseInt((num-h)*60);
+	s=parseInt(((num-h)*60-mn)*60)
+	result.push(h,mn,s);
+	console.log(result);
+
+}
+	//race(720, 850, 70)
+function alphabetPosition(text) {
+  var str = "The sunset sets at twelve o' clock.".toUpperCase();
+  arr=[];
+    for (var i in str) {
+        var charCode = str.charCodeAt(i);
+        if (65 <= charCode && charCode <= 90)
+       arr.push( charCode - 64);
+    }
+  return arr.join(" ")+"";
+}
+//alphabetPosition("The sunset sets at twelve o' clock.") 
+
+
+function stripUrlParams(url, arr) {
+    var domain = url.substr(0, url.lastIndexOf('?')+1);
+    if(url.lastIndexOf('?') == -1) 
+        domian = url;
+    var query = url.substr(url.lastIndexOf('?')+1);
+    var obj = {};
+    var argsArr = query.split('&');
+    for(var i in argsArr) {
+        var tmp = argsArr[i].split('=');
+        if(obj[tmp[0]] == null)
+            obj[tmp[0]]=tmp[1];
+    }
+    query = "";
+    for(var i in obj) {
+        // 去掉arr中的参数
+        var is = true;
+        if(arr != null)
+            for(var j in arr) {
+                if(i == j) 
+                    is = false;
+            }
+        if(is) {
+            query += i + "=" + obj[i]+"&";
+        }
+    }
+    return domain + query.substr(0, query.length-1);
+}
+
+function solution(input, markers){
+ var test= input.split("\n");
+ var len=markers.length ,strlen=test.length;
+   	result=[];
+        test.forEach(function(item){
+
+         var str="";
+         for(var i=0;i<len;i++){
+         	item=(item.split(markers[i])[0]).replace(/(\s*$)/g,"");
+         	//console.log(typeof(item));
+         }
+         //console.log("["+item+"]");
+       //  str=str+item;
+         result.push(item);
+         })
+        return result.join("/n");
+       // return str;
+}
+
+
+    // Pascal(n);
+     function Combination(m,n){  
+            if(n == 0) return 1;  //每行第一个数为1  
+            else if(m == n) return 1; //最后一个数为1  
+            else return Combination(m-1,n-1)+Combination(m-1,n);  
+        }  
+        function  pascalsTriangle(n) {   //杨辉三角,N为行数   
+        	var result=[];
+            for( var i = 0 ; i < n ; i++ ){   //一共N行  
+                for ( var j = 0 ; j <= i ; j++ ) {  //
+               result.push(Combination(i,j));
+                }  
+            } 
+            return result;
+             }
+    
+
+// function func1(arg1, arg2) { ... }
+
+// var map = createArgumentMap(func1,'valueOfArg1', 'valueOfArg2');
+// console.log(map['arg1']);  
+// console.log(map['arg2']);
+
+  function createArgumentMap(func) {
+    // create an argument map and return it
+    console.log(func.arguments[0]);
+    //return func;
+  }
+function test(a,b){
+	// a='valueOfArg1';
+	// b='valueOfArg2';
+	//console.log(arguments[0]);
+}
+var num={
+  numA:5,
+  numB:10,
+  sum:function(){
+   console.log(this===num);
+    function calculate(){
+    	  console.log(this===calculate)
+      return this.numA+this.numB ;
+    
+    }
+    return calculate();
+  }
+};
+
+function order(words){
+  // ...
+  arr=words.split(" ");
+
+}
+result=order("is2 Thi1s T4est 3a");
+//console.log(result);
+
+function ipToInt32(ip){
+  //...
+  arr=[];
+  //console.log(ip.split("."));
+ip.split(".").forEach(function(item){
+  //arr.push(item.toString(2));
+  var jz=(item*1).toString(2);
+  //console.log(jz);
+  var a=addZero(jz,8);
+  //console.log(a);
+  return arr.push(a);
+});
+  //return (arr.join("."));
+  
+     num = Number(arr[0]) * 256 * 256 * 256 + Number(arr[1]) * 256 * 256 + Number(arr[2]) * 256 + Number(arr[3]);
+    num = num >>> 0;
+    return num;
+}
+
+function addZero(str,length){               
+    return new Array(length - str.length + 1).join("0") + str;              
+}
+
+ var result=ipToInt32("128.32.10.1");
+// console.log(result);
+
+
+function ipToInt(IP){
+    return parseInt(IP.replace(/\d+\.?/ig,function(a){
+        a = parseInt(a); 
+        return (a > 15 ? "" : "0") + a.toString(16);
+    }),16);
+}
+
+function ip2int(ip){  
+    var num = 0;  
+    ip = ip.split(".");  
+    num = Number(ip[0]) * 256 * 256 * 256 + Number(ip[1]) * 256 * 256 + Number(ip[2]) * 256 + Number(ip[3]);  
+    num = num >>> 0;  
+    return num;  
+}  
+
+function ipToNumber(ip) {  
+    var num = 0;  
+    if(ip == "") {  
+        return num;  
+    }      
+    var aNum = ip.split(".");   
+    if(aNum.length != 4) {  
+        return num;  
+    }     
+    num += parseInt(aNum[0]) << 24;  
+    num += parseInt(aNum[1]) << 16;  
+    num += parseInt(aNum[2]) << 8;  
+    num += parseInt(aNum[3]) << 0;  
+    num = num >>> 0;//这个很关键，不然可能会出现负数的情况  
+    return num;    
+}  
+
+var capitals = function (word) {
+  // Write your code here
+  var arr=[];
+  var m=word.split("");
+  m.forEach(function(item,key){
+    if(item==item.toUpperCase()){
+ 
+      arr.push(key)
+      
+    }
+ 
+  })
+  return arr;
+};
+var test=capitals('CodEWaRs');
+//console.log(test);
+
+// function simplify(poly){
+
+//   var re=/\b-/g;
+
+//  var change= poly.replace(re,"+-1");
+//  arr=change.split("+");
+
+//  var len=arr.length;
+
+// var pattern=/\d[a-zA-Z]/g
+// arr.forEach(function(item){
+//   console.log( item.split(pattern))
+//   return item.split(pattern)
+// })
+// return arr;
+// }
+
+
+function simplify (expression) {
+    let variables = {}, reg = /([\+\-]?)(\d*)([a-zA-Z]+)/g, matched
+    
+    while (matched = reg.exec(expression)) { // 拆解变量
+      console.log(matched);
+        let sign = matched[1] || '+';
+       // console.log(sign);
+        let num = matched[2] || '1';
+        console.log(sign+num);
+        let variable = [].slice.call(matched[3]).sort().join('')
+        variables[variable] = (variables[variable] || 0) + +(sign + num)
+    }
+    
+    let items = [] // 将变量排序
+    for (let v in variables) items.push([v, variables[v]])
+    items.sort((a, b) => {
+        if (a[0] > b[0]) return 1
+        else if (a[0] < b[0]) return -1
+        else return 0
+    })    
+
+    // 组装结果
+    return items
+        .map(item => [item[1] > 0 ? '+' : '', item[1], item[0]].join('')).join('')
+}
+
+var test=simplify("3x+y-x+2y+5xy-y-xy");
+console.log(test);
+//var myRe = /d(b+)d/g;
+// var myArray = myRe.exec("cdbbdbsbz");
+// console.log(myArray);
+</script>
+</html>
