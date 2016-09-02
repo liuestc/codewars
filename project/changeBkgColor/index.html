@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+html {
+  background-color: rgb(77, 222, 171);
+}
+
+p {
+  font-family: "Lucida Console", monospace;
+  margin-top: 40px;
+  text-align: center
+}
+.wrap{
+	padding: 20px;
+}
+	
+</style>
+<body>
+<div class="wrap">
+	<p>Click anywhere to see the colors start changing</p>
+<p>Refresh the page to see them stop.</p>
+</div>
+</body>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
+<script>
+//why we should import jqueryUI  ?
+// because jquery animate() function can't support background change
+	var rgbOptions = ["rgb(61, 183, 88)", "rgb(230, 79, 59)", "rgb(222, 77, 99)", "rgb(211, 188, 180)", "rgb(255, 255, 255)", "rgb(255, 220, 90)", "rgb(77, 222, 171)"]
+
+ function changeBkgColor(i){
+	$("html").animate({'background-color':rgbOptions[i]},500);
+	//alert(2)
+	i++
+	if(i==rgbOptions.length){
+		i=0;
+	}
+	setTimeout('changeBkgColor('+i+')',1000);
+}
+	$(document).ready(function(){
+		$("html").on('click',function(){
+		//	alert("!!");
+		changeBkgColor(0);
+	})		
+	})
+
+
+</script>
+</html>
