@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*,div,p,span,a{
+		margin: 0;
+		padding: 0;
+	}
+	html{
+		font-size: 10px;
+		height: 100%;
+        background: #fb5e07;
+        font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+        z-index: 1;
+	}
+	.head-img img{
+		width: 100%;
+		z-index: 2;
+	}
+	.activity{
+		z-index: 2;
+		padding:2.5rem ;
+		/*height: 30rem;*/
+		/*margin:0 2.5rem;*/
+	}
+	.content1,.content2{
+    		background: url('./activity1.png') no-repeat; 
+	    	height:40rem;
+	    	background-size: auto 100%;
+    		background-position: center;
+    		margin-bottom:4.2rem;
+	}
+
+	
+	.intro{
+		/*text-align: center;*/
+		font-size: 3rem;
+		padding: 12rem 4rem 4rem 4rem;
+		margin:0 10%;
+		color: #6a3906;
+	}
+	.btn{
+		color:#640b01;
+		font-size: 3.3rem;
+		text-align: center; 
+		width:30rem;
+		margin:0 auto;
+		line-height:7rem;
+		text-align: center;
+		padding:2.5rem ;
+		background:  #fb5e07;
+	}
+
+	.content2{
+		background: url('./activity2.png') no-repeat; 
+		height:48rem;
+	    background-size: auto 100%;
+    	background-position: center;
+	}
+	.gift{
+		text-align: center;
+		padding:2.5rem;
+		color:#eb1820;
+		font-size:2.2rem;
+	}
+
+
+</style>
+<body>
+	<div class="container">
+		<div class="head-img"><img src='./themeimg.png'/></div>
+		<div class="activity">
+			<div class="content1">
+			<!-- <img src="./activity1.png" alt="activity IMG"> -->
+				<p class="intro">活动期间，触宝用户在1769游戏内首次单笔充值满30元即可立3元
+				</p>
+				<div class="btn">立即参与</div>
+			</div>
+			<div class="content2">
+				<p class="intro">活动期间，触宝用户在1769游戏内首次单笔充值满30元即可立减3元</p>
+				<p class="gift">查看礼包>></p>
+				<div class="btn">立即参与</div>
+			</div>
+		</div>
+		<div class="rule"></div>
+	</div>
+</body>
+</html>
